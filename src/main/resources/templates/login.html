@@ -1,0 +1,45 @@
+<!--Lesson3_Chapter21_SpringBoot  認証・認可
+
+・認証（Authentication）：通信相手が誰であるかを確認すること。
+・認可（Authorization）：画面にアクセスする権限や処理を行う権限など、特定の条件に対してアクセスの権限を与えること。
+
+④-1ログインビューを作成する
+
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+			xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+</head>
+<body>
+	<h1>ログイン</h1>
+	<div th:if="${param.error}">		<!-- リクエストパラメータの判定 -->
+		<div>
+			UserNameまたは、Passwordが違います。	 <!-- 認証エラーメッセージ -->
+		</div>		
+	</div>
+	
+	<form method="post" th:action="@{/authenticate}">	<!-- ログイン処理のパスを指定  -->
+		<label>UserName:</label>
+		
+		<!-- ユーザ名の入力部 -->
+		<input type="text" id="userName" name="userName"> 	
+		<br>
+		
+		<!-- パスワードの入力部 -->
+		<label>Password:</label>
+		<input type="password" id="password" name="password">
+		<br>
+
+		<!--subimit⇒form内のテキストボックスやラジオボックスなどに入力された値をサーバ側や別ページに送信するもの-->
+		<input type="submit" id="submit" value="ログイン">  
+		
+		
+	</form>
+		
+			
+</body>
+</html>

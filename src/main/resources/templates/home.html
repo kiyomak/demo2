@@ -1,0 +1,33 @@
+<!--Lesson3_Chapter21_SpringBoot  認証・認可
+
+・認証（Authentication）：通信相手が誰であるかを確認すること。
+・認可（Authorization）：画面にアクセスする権限や処理を行う権限など、特定の条件に対してアクセスの権限を与えること。
+
+④-2ホームビューを作成する
+
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+			xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+	<h1>Home</h1>
+	
+	<form method:"get" th:action="@{/adminPage}">
+		<input type="submit" value="AdminPageへ">
+	</form>
+	
+	<form method="get" th:action="@{/userPage}">
+		<input type="submit" value="UserPageへ">		
+	</form>
+	
+	<form method="post" th:action="@{/logout}">
+		<input type="submit" value="ログアウト">
+	</form>
+	
+</body>
+</html>
